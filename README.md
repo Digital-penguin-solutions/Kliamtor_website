@@ -1,2 +1,2 @@
-# Mall
-Mall för alla digitalis projekt
+# Klimator.se
+Klimator officella hemsida
