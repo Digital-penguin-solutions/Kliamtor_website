@@ -231,7 +231,7 @@ if(isset($_COOKIE['lang'])){
                 <p>esben.almkvist@klimator.se</p>
             </strong>
         </div>
-        <div class="col-lg-4 col-md-4 col-xs-6 persons fade-in fade-delay-2"> <img class = "center-hori-css" src="img/Personer/Johan Edblad.jpg" alt="Bild på Johan Edblad">
+        <div class="col-lg-4 col-md-4 col-xs-6 persons fade-in fade-delay-2"> <img class = "center-hori-css" src="img/Personer/Peter Hagberg.jpg" alt="Bild på Peter Hagberg">
             <h4 class="purple-selection">Peter Hagberg</h4>
             <h5> </h5>
             <strong>
