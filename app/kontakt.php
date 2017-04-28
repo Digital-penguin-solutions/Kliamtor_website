@@ -81,11 +81,11 @@ if(isset($_COOKIE['lang'])){
             </strong>
         </div>
         <div class="col-lg-4 col-md-4 col-xs-6 persons fade-in fade-delay-2"> <img class = "center-hori-css" src="img/Personer/Johan Edblad.jpg" alt="Bild på Johan Edblad">
-            <h4 class="purple-selection">Johan Edblad</h4>
+            <h4 class="purple-selection">Peter Hagberg</h4>
             <h5> </h5>
             <strong>
-                <p>0706 760 356</p>
-                <p>johan.edblad@klimator.se</p>
+                <p>0739 197 414</p>
+                <p>peter.hagberg@klimator.se</p>
             </strong>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-6 persons fade-in"> <img class = "center-hori-css" src="img/Personer/Eric Zachrisson.jpg" alt="Bild på Erik Zachrisson">
