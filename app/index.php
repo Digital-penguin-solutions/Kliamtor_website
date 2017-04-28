@@ -1,118 +1,199 @@
+<!DOCTYPE html>
 <?php
+$english = false;
 
-	/**********************
-	* Get parameters
-	***********************/
-	include("./parameters.php");
+if(isset($_COOKIE['lang'])){
+    $lang = $_COOKIE['lang'];
 
-
-	/**********************
-	* Fetch data from URL GET
-	***********************/
-	$measuretime=$_GET['date']; //210515192925 = ddmmyyHHMMss
-	$imei = $_GET['imei'];
-	$fix=$_GET['fix'];
-	$long=$_GET['lg'];
-	$lat =$_GET['lt'];
-	$alt=$_GET['alt'];
-	$course=$_GET['course'];
-	$speed=$_GET['speed'];
-	$pyrotemp=$_GET['pyrotemp'];
-	$airtemp=$_GET['airtemp'];
-	$lc=$_GET['lc'];
-	$roadstatus = $_GET['status'];
-	$friction=$_GET['friction'];	
-	$reye1=$_GET['reye1'];
-	$reye2=$_GET['reye2'];
-	$reye3=$_GET['reye3'];
-	$filter=$_GET['filter'];
-	
-	if(isset($_GET['setup']))
-	{	
-		$setup=true;
-	}
-	else
-	{	
-		$setup=false;
-	}
-	
-	/**********************
-	* Add some IMEI (+IP) filtering here
-	***********************/
-	//Filter on IMEI (for storage into corrent db, different customers or so)
-	//Filter on IP (for safety)
-	
-	
-	/**********************
-	* Convert data
-	***********************/	
-	//Convert datetime format
-	$measureyear = substr($measuretime,4,2);
-	$measuremonth= substr($measuretime,2,2);
-	$measureday = substr($measuretime,0,2);
-	$measurehour = substr($measuretime,6,2);
-	$measureminute = substr($measuretime,8,2);
-	$measuresecond = substr($measuretime,10,2);
-	
-	$measuretime = $measureyear."-".$measuremonth."-".$measureday." ".$measurehour.":".$measureminute.":".$measuresecond;
-	
-	
-	/**********************
-	* Filter when to save data
-	***********************/
-	$storeDataInDb = false;
-	if(true)//in_array($imei, $approvedImeis))
-	{
-		if($speed>=$minSpeedToStoreInDb)
-		{	
-			$storeDataInDb = true;
-		}
-		
-		/**********************
-		* Override save filters for setup
-		***********************/
-		if($setup)
-		{
-			$storeDataInDb = true;
-		}
-		
-	}
-	
-	
-	
-	
-	
-	if($storeDataInDb)
-	{
-		/**********************
-		* Connect to MySQL db
-		***********************/
-		$con = mysql_connect($mysql_host,$mysql_user,$mysql_password);
-		if (!$con)
-		{
-			die('Could not connect: ' . mysql_error());
-		}
-		mysql_select_db($mysql_database, $con);
-		mysql_set_charset('utf8');
-
-		/**********************
-		* INSERT into MySQL db
-		***********************/		
-		
-		$query = "INSERT INTO `$mysql_datatable` VALUES ('0', UTC_TIMESTAMP(), '$measuretime', '$imei', '$fix', '$long', '$lat', '$alt', '$course', '$speed', '$pyrotemp', '$airtemp', '$lc', '$roadstatus', '$friction','$reye1','$reye2','$reye3','$filter')";		
-		$result = mysql_query($query);	
-	}
-	
-	if($storeToText)
-	{
-		$recievedData = $_SERVER['QUERY_STRING'];
-		//$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		//$moddedData = preg_replace("/[^A-Za-z0-9 ]/", '', $recievedData);
-		file_put_contents($outputTextFileName, $recievedData."\n", FILE_APPEND);
-		//file_put_contents($outputTextFileName, $actual_link."\n", FILE_APPEND);
-
+    if ($lang == "eng") {
+        $english = true;
+    }
 }
-
-
-
 ?>
+<?include "include_pages/head.php"?>
+<html lang="en">
+<head>
+    <meta name="description" content="Klimator homepage">
+    <title>Klimator</title>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<?php include "include_pages/nav.php"?>
+
+<!--=============================================== Section 0.5 about klimator ===============================================-->
+
+<section id="page0-5">
+    <?php
+    if($english){
+        $welcome = "Welcome to Klimator";
+        $info = "Klimator is a knowledge based company linked to the University of Gothenburg. Since 1999 we have been working with consultancy work within applied climatology. Our goal is to provide increased knowledge in this field for our customers. We are especially focusing on projects within traffic safety, climate mapping and forecasting of road conditions.We work both in Sweden and internationally with the development of new solutions for road climate monitoring, intelligent transport solutions using ITS and projects related to an increased energy efficiency and sustainability. We are also working in the field of urban design with special focus on comfort climate, wind issues and environmental factors.";
+    }
+    else
+    {
+        $welcome = "Välkommen till Klimator";
+        $info = "Klimator är ett kunskapsföretag vid Göteborgs universitet.
+					Sedan 1999 har vi arbetat med konsultverksamhet inom klimatologi med målsättningen att bidra med kunskap inom tillämpningar som trafiksäkerhet, bebyggelse och miljö. Vi har verksamhet i Sverige och internationellt där vi bland annat arbetar med att designa och utveckla vägklimatsystem, bidra till framtida transportlösningar mot bakgrund av energi- kostnad och säkerhetskrav.";
+    }
+    ?>
+    <div class="container-fluid full-height">
+        <div class="row full-height">
+            <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs abote full-height slide-in slide-in-delay-2 slide-in-left"> <img class="col-lg-12 col-md-12 col-sm-12 hidden-xs center-hori-css" src="img/logo/icon-r.svg" alt="logo"> </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 center-vertical abote fade-in fade-in-delay-1">
+                <h1 class="col-sm-offset-1 col-lg-12 col-md-12 col-sm-12 col-xs-12"><?php echo $welcome; ?></h1>
+                <p class="col-sm-offset-1 col-lg-12 col-md-12 col-sm-12 col-xs-12"> <?php echo $info; ?></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--============================================== Section1 start ==============================================-->
+<section id="page1" class="content-section text-center presentation">
+    <?php
+    if($english){
+        $title = "Business Fields";
+        $business_info = "";
+
+        $affar_description1 = "RSI, Road Status Information, is the world leading technology that will enable winter maintenance entrepreneurs to work preemptively and act before slippery situations occur. The information can also be used to inform the public about the prevailing road conditions.";
+        $affar_description2 = "BiFi – Bearing information through vehicle intelligence is a tool which aims to give road administrators, entrepreneurs, the transport and logging industry relevant and high quality information concerning the bearing capacity of the gravel road network. ";
+        $affar_description3 = "Supervision of roads for repair and maintenance on damaged roads is today often performed by manual inspections or done using very expensive and advanced instruments.";
+        $affar_description4 = "Forecasts for road surface conditions are calculated by downscaling weather forecasts to road level. This provides relevant information to the road user and to road maintenance crews. With Klimators specialist knowledge base we produce higher accuracy than normal weather forecasts, which is critical for this type of application.";
+        $affar_description5 = "The MDSS-system developed by Klimator gives you information about when a road needs to be salted or plowed. The Road weather Information Systems together with weather forecast and radar pictures gives you a lot of information that needs to be taken into account to be able to conduct effective winter maintenance.";
+        $affar_description6 = "Weather controlled road means that weather and road surface conditions determine what the speed limit is at any given time. Klimator´s dynamic speed limit control reduces accident risks and smoothes traffic flow.";
+    }
+    else{
+        $title = "Affärsområden";
+        $business_info = "Affärsområden som vi arbetar med";
+
+        $affar_description1 = "RSI, Road Status Information, är en världsledande teknisk tjänst som beskriver vinterväglaget i realtid och framtid. RSI underlättar för att driftsentreprenörer effektivt ska kunna förebygga, bekämpa och därmed förhindra halka. Det i sin tur kan förbättra trafikflödet och minska olycksrisken.";
+        $affar_description2 = "BiFi – Bärighetsinformation genom Fordons-intelligens är ett verktyg för att ge väghållare, Trafikverket och transportföretag / skogsindustrin relevant och högkvalitativ information om bärighetsläget på det obelagda vägnätet. ";
+        $affar_description3 = "Klimator erbjuder automatiserad mobil detektion av beläggning och vägstabilitet.";
+        $affar_description4 = "Prognoser av väglag beräknas genom nedskalning av en väderprognos till vägnivå som ger information vilken är relevant för trafikanter och väghållare. Med Klimators specialkunskaper uppnår vi högre precision än normala väderprognoser, vilket krävs för denna typ av tillämpning.";
+        $affar_description5 = "Klimators Beslutsstödsmodell (MDSS) hjälper entreprenörer i beslut om när en väg ska saltas eller plogas? Dagens vägvädersystem genererar mycket data som tillsammans med väderprognoser, radarbilder och manuella observationer ska integreras ihop till ett beslut om åtgärd är nödvändig eller ej.";
+        $affar_description6 = "Väderstyrd väg betyder att väder och väglag påverkar vilken hastighet som är tillåten. Dynamisk hastighetsreglering är en av Klimators produkter som ger många fördelar. Trafikanter får direkt information om rådande väglag via den hastighet som visas på de dynamiska skyltarna.";
+    }
+
+
+    ?>
+    <div class="container-fluid">
+        <div class="row fade-in">
+            <div class = "fade-in affarsomraden-text">
+                <h1 class="text-center col-lg-8 col-xs-12 col-sm-12 col-md-8 col-sm-offset-0 col-xs-offset-0 col-md-offset-2 col-lg-offset-2"> <?php echo $title; ?> </h1>
+                <h4 class="hidden-sm hidden-xs col-lg-8 col-xs-12 col-sm-12 col-md-10 col-sm-offset-0 col-xs-offset-0"> <?php echo $business_info; ?></h4>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="content">
+                    <div class = "hidden-lg hidden-md center-vertical">
+                        <div class = "col-xs-12 col-sm-12 tablet-Arbetsomrade-index"> <img class= "col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-40 tablet-height-40 no-padding" src="img/Arbetsomrade1.jpg " alt="Arbetsomrade1"/>
+                            <div class = "tablet-description col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-5 tablet-height-5"> <a class = "center-vertical-css"><?php echo $affar1; ?></a> </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 tablet-Arbetsomrade-index"> <img class= "col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-40 tablet-height-40 no-padding" src="img/Arbetsomrade2.jpg " alt="Arbetsomrade2"/>
+                            <div class = "tablet-description col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-5 tablet-height-5"> <a class = "center-vertical-css"><?php echo $affar2; ?></a> </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 tablet-Arbetsomrade-index"> <img class= "col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-40 tablet-height-40 no-padding" src="img/Arbetsomrade3.jpg " alt="Arbetsomrade3"/>
+                            <div class = "tablet-description col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-5 tablet-height-5"> <a class = "center-vertical-css"><?php echo $affar3; ?></a> </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 tablet-Arbetsomrade-index"> <img class= "col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-40 tablet-height-40 no-padding" src="img/Arbetsomrade4.jpg " alt="Arbetsomrade4"/>
+                            <div class = "tablet-description col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-5 tablet-height-5"> <a class = "center-vertical-css"><?php echo $affar4; ?></a> </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 tablet-Arbetsomrade-index"> <img class= "col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-40 tablet-height-40 no-padding" src="img/Arbetsomrade5.jpg " alt="Arbetsomrade5"/>
+                            <div class = "tablet-description col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-5 tablet-height-5"> <a class = "center-vertical-css"><?php echo $affar5; ?></a> </div>
+                        </div>
+                        <div class = "col-xs-12 col-sm-12 tablet-Arbetsomrade-index"> <img class= "col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-40 tablet-height-40 no-padding" src="img/Arbetsomrade6.jpg " alt="Arbetsomrade6"/>
+                            <div class = "tablet-description col-sm-offset-1 col-xs-offset-1 col-sm-10 col-xs-10 mobile-height-5 tablet-height-5"> <a class = "center-vertical-css"><?php echo $affar6; ?></a> </div>
+                        </div>
+                    </div>
+                    <!-- Container for desktop-->
+                    <div class = "hidden-xs hidden-sm">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 grid fade-in affarsomrade">
+                            <h2 class = "hidden-xs"><?php echo $affar1; ?></h2>
+                            <figure class="effect-zoe"> <img class="height-45 mobile-height-15 tablet-height-25" src="img/Arbetsomrade1.jpg " alt="Arbetsomrade1"/>
+                                <figcaption>
+                                    <h2 class = "center-hori"> <a class="reed-more-afar" href="affarsomrade.php#pagea1">Läs mer <i class="fa fa-external-link"></i></a></h2>
+                                    <p class="description"><?php echo $affar_description1; ?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 grid grid fade-in fade-delay-1 affarsomrade">
+                            <h2 class = "hidden-xs"><?php echo $affar2; ?></h2>
+                            <figure class="effect-zoe"> <img class="height-45 mobile-height-15 tablet-height-25" src="img/Arbetsomrade2.jpg " alt="Arbetsomrade1"/>
+                                <figcaption>
+                                    <h2 class = "center-hori"> <a class="reed-more-afar" href="affarsomrade.php#pagea2">Läs mer <i class="fa fa-external-link"></i></a></h2>
+                                    <p class="description"><?php echo $affar_description2; ?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 grid grid fade-in fade-delay-2 affarsomrade">
+                            <h2 class = "hidden-xs"><?php echo $affar3; ?></h2>
+                            <figure class="effect-zoe"> <img class="height-45 mobile-height-15 tablet-height-25" src="img/Arbetsomrade3.jpg " alt="Arbetsomrade1"/>
+                                <figcaption>
+                                    <h2 class = "center-hori"> <a class="reed-more-afar" href="affarsomrade.php#pagea3">Läs mer <i class="fa fa-external-link"></i></a></h2>
+                                    <p class="description"><?php echo $affar_description3; ?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 grid grid fade-in affarsomrade">
+                            <h2 class = "hidden-xs"><?php echo $affar4; ?></h2>
+                            <figure class="effect-zoe"> <img class="height-45 mobile-height-15 tablet-height-25" src="img/Arbetsomrade4.jpg " alt="Arbetsomrade1"/>
+                                <figcaption>
+                                    <h2 class = "center-hori"> <a class="reed-more-afar" href="affarsomrade.php#pagea4">Läs mer <i class="fa fa-external-link"></i></a></h2>
+                                    <p class="description"><?php echo $affar_description4; ?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 grid grid fade-in fade-delay-1 affarsomrade">
+                            <h2 class = "hidden-xs"><?php echo $affar5; ?></h2>
+                            <figure class="effect-zoe"> <img class="height-45 mobile-height-15 tablet-height-25" src="img/Arbetsomrade5.jpg " alt="Arbetsomrade1"/>
+                                <figcaption>
+                                    <h2 class = "center-hori"> <a class="reed-more-afar" href="affarsomrade.php#pagea5">Läs mer <i class="fa fa-external-link"></i></a></h2>
+                                    <p class="description"><?php echo $affar_description5; ?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 grid grid fade-in fade-delay-2 affarsomrade">
+                            <h2 class = "hidden-xs"><?php echo $affar6; ?></h2>
+                            <figure class="effect-zoe"> <img class="height-45 mobile-height-15 tablet-height-25" src="img/Arbetsomrade6.jpg " alt="Arbetsomrade1"/>
+                                <figcaption>
+                                    <h2 class = "center-hori"> <a class="reed-more-afar" href="affarsomrade.php#pagea6">Läs mer <i class="fa fa-external-link"></i></a></h2>
+                                    <p class="description"><?php echo $affar_description6; ?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--=================================Forskning============================== -->
+
+<section id="page3">
+    <?php
+    if($english){
+        $text = "Klimator is a knowledge based company linked to the University of Gothenburg where we are involved in research and design with the Road Climate research group at the University.";
+        $title = "Research";
+        $read_more = "Read more";
+    }
+    else{
+        $text = "Klimator är ett kunskapsföretag vid Göteborgs Universitet och bedriver forsknings- och utvecklingsarbete tillsammans med Vägklimatgruppen vid universitet. Vi har även nära sammarbete med flera universitet och forskningsinstitut i övriga Sverige och runt om i Europa.";
+        $title = "Forskning";
+        $read_more = "Läs mer";
+    }
+    ?>
+    <div class="container-fluid full-height">
+        <div class="row full-height">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 center-vertical forskning fade-in">
+                <h1 class="col-lg-12"><?php echo $title; ?> </h1>
+                <p class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12"> <?php echo $text; ?> <a target="_blank" href = "http://www.gvc.gu.se/forskning/klimat/vagklimat"><br><?php echo $read_more; ?></a></p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs-down forskning full-height hidden-xs"> <img class="col-lg-12 col-md-12 col-sm-12 " src="img/forskning.jpg" alt="forskning"> </div>
+            <!-- <img class="triangel col-lg-12" src="img/triangel.png" alt="triangel"> -->
+        </div>
+    </div>
+</section>
+
+<?php include "include_pages/footer.php"?>
+</body>
+</html>
