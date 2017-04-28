@@ -189,7 +189,6 @@ if(isset($_COOKIE['lang'])){
                 <p class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12"> <?php echo $text; ?> <a target="_blank" href = "http://www.gvc.gu.se/forskning/klimat/vagklimat"><br><?php echo $read_more; ?></a></p>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs-down forskning full-height hidden-xs"> <img class="col-lg-12 col-md-12 col-sm-12 " src="img/forskning.jpg" alt="forskning"> </div>
-            <!-- <img class="triangel col-lg-12" src="img/triangel.png" alt="triangel"> -->
         </div>
     </div>
 </section>
