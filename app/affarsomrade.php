@@ -17,6 +17,7 @@ if(isset($_COOKIE['lang'])){
 <head>
     <meta name="description" content="Klimator homepage">
     <title>Klimator</title>
+    <meta charset="utf-8">
 
     <!--======================================= CSS =====================================================-->
     <link href="css/style.css" rel="stylesheet">
