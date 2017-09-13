@@ -535,7 +535,8 @@ img::-moz-selection {
 	top: 300%;
 	background-color: #5a5a5a;
 }
-#page3 {
+
+#page1-5 {
 	background: #7b1830;
 	position: absolute;
 	top: 400%;
@@ -544,12 +545,22 @@ img::-moz-selection {
 	z-index: 2;
 	color: white;
 }
+#page3 {
+	background: #7b1830;
+	position: absolute;
+	top: 500%;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	color: white;
+}
+
 /* fotter styling OG*/
 #page4 {
 	position: absolute;
 	width: 100%;
 	height: 200%;
-	top: 500%;
+	top: 600%;
 	background: #5a5a5a;
 	padding: 0;
 }
@@ -558,15 +569,20 @@ img::-moz-selection {
 	#page1 {
 		height: 340% !important;
 	}
-	#page2 {
-		top: 440%;
-	}
-	#page3 {
+	#page1-5 {
 		top: 540%;
+        height:150%;
 	}
-	#page4 {
+	#page2 {
 		top: 640%;
 	}
+	#page3 {
+		top: 690%;
+	}
+	#page4 {
+		top: 790%;
+	}
+
 }
 .presentation h1 {
 	color: #5a5a5a;
@@ -1153,6 +1169,49 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 	color: #7b1830;
 }
 
+.eu-header {
+    padding-top:1%;
+    text-align:center;
+    font-size:3vw;
+    text-transform:none;
+}
+.eu-about {
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:2%;
+    text-align:center;
+    font-size:1vw;
+}
+.eu-flag-container {
+    width:20%;
+    padding-top:2%;
+}
+.eu-flag-about{
+    text-align:center;
+    font-size:0.8vw;
+    padding:2%;
+}
+.eu-flag{
+    width:100%;
+}
+
+/* tablet and mobile version for the EU page*/
+@media screen and (max-width: 992px) {
+    .eu-header {
+        font-size:5vw;
+    }
+    .eu-about {
+        font-size:2.9vw;
+    }
+    .eu-flag-container{
+        width:40%;
+    }
+    .eu-flag-about{
+        font-size:2.5vw;
+    }
+}
+
+
 /*======================================================= Desktop version ============================================================*/
 @media screen and (min-width: 992px) {
 	.afarsomraden {
@@ -1182,7 +1241,10 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 	}
 }
 
-/*======================================================= Tablet Vertion ============================================================*/
+
+
+
+/*======================================================= Tablet Version ============================================================*/
 @media screen and (min-width: 768px) and (max-width: 992px) {
 	figure.effect-zoe p.description {
 		position: absolute;

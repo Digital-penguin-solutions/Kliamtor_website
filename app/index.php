@@ -166,6 +166,15 @@ if(isset($_COOKIE['lang'])){
         </div>
     </div>
 </section>
+<section id="page1-5">
+    <h1 class = "fade-in eu-header">Project for better road maintenance</h1>
+    <p class = "fade-in fade-in-delay-1 eu-about">Private cars account for 73% of the passenger traffic in the EU, and 44% of all goods in the EU are transported by road. Therefore, proper road maintenance is crucial to ensure traffic flow and safety for all road users. Especially during winter, adverse weather conditions are the primary cause in many road accidents. Currently, road maintenance contractors take decisions on their interventions mostly based on their experience and low-resolution data from meteorological forecasts and stationary weather stations, resulting in inefficient resource management and excessive application of salt/de-icing chemicals. High-quality data to accurately assess and forecast road status during winter conditions can help to increase the operational efficiency and reduce the environmental impact of winter services. Klimator-RSI addresses this challenge by bringing into the market a disruptive tool to monitor road status and assist decision-making in winter services based. The novelty of Klimator-RSI relies on the establishment of our own mobile sensor infrastructure to collect continuous and accurate road status data over large geographic areas, and to provide detailed information about friction and road surface properties. In addition, the collected data is integrated with “traditional” road weather data from RWIS stations and meteorological forecasts, and then processed in our unique climate model and interpreter. Although our service primarily aims to serve road authorities & maintenance, the data can also improve traffic flow and safety for road users. Klimator-RSI has already been successfully tested in operational environment in Sweden showing that costs of winter road maintenance can be reduced by 20-30%. We foresee a potential accumulated revenue for the period 2020-2022 of up to €4.7 M, and the creation of 12 new job positions in our company.</p>
+<div class = "center-hori-css eu-flag-container">
+    <img class = "fade-in eu-flag" src = "img/eu-flag.jpg">
+    <p class = "fade-in eu-flag-about">This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 774187</p>
+</div>
+
+</section>
 
 <!--=================================Forskning============================== -->
 
