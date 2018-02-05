@@ -172,7 +172,6 @@ document {
         padding-left: 10%;
         padding-right: 10%;
         font-weight: 700;
-        -webkit-transition: top 0.8s;
         transition: top 0.8s;
         -moz-transition: top 0.8s;
         -o-transition: top 0.8s;
@@ -236,8 +235,6 @@ document {
 
 /*defult a for al sizea OG*/
 a {
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
 
@@ -311,16 +308,12 @@ a {
         letter-spacing: 1px;
         background: 0 0;
         color: #fff;
-        -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
         transition: background .5s ease-in-out, padding .5s ease-in-out;
     }
 
     .navbar-custom.top-nav-collapse {
         padding: 0;
         background: rgba(255, 255, 255, 0.96);
-        -moz-box-shadow: 0px 0px 10px black;
-        -webkit-box-shadow: 0px 0px 10px black;
         box-shadow: 0px 0px 10px black;
     }
 
@@ -356,9 +349,6 @@ a {
         padding: 5px 0;
         display: block;
         margin-top: 0; /*remove the gap so it doesn't close*/
-        -webkit-transition: 0.5s;
-        -moz-transition: 0.5s;
-        -o-transition: 0.5s;
         transition: 0.5s;
     }
 
@@ -411,8 +401,6 @@ a {
     text-align: center;
     color: #fff;
     background: transparent;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
@@ -482,8 +470,6 @@ a {
     padding: 6px 25px 6px 25px !important;
     color: #fff;
     background: 0 0;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
 }
 
@@ -520,36 +506,6 @@ a {
     height: auto;
 }
 
-@-webkit-keyframes pulse {
-    0% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-    50% {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-    }
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-@-moz-keyframes pulse {
-    0% {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
-    50% {
-        -moz-transform: scale(1.2);
-        transform: scale(1.2);
-    }
-    100% {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
 ::-moz-selection {
     text-shadow: none;
     color: rgba(123, 24, 48, 1);
@@ -568,6 +524,10 @@ a {
 .purple-selection::selection {
     text-shadow: none;
     color: rgba(102, 102, 102, 1);
+}
+
+img::-moz-selection {
+    background: 0 0;
 }
 
 img::selection {
@@ -714,8 +674,6 @@ img::-moz-selection {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 
@@ -814,9 +772,7 @@ figure.effect-zoe figcaption {
     height: 3.75em;
     background: #5a5a5a;
     color: #FFFFFF;
-    -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
-    -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
 }
 
@@ -849,16 +805,11 @@ figure.effect-zoe p.description {
     opacity: 0;
     display: block;
     margin: auto;
-    -webkit-transition: opacity 0.35s;
-    -moz-transition: opacity 0.35s;
-    -o-transition: opacity 0.35s;
     transition: opacity 0.35s;
 }
 
 figure.effect-zoe h2, figure.effect-zoe p.icon-links a {
-    -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
-    -webkit-transform: translate3d(0, 200%, 0);
     transform: translate3d(0, 200%, 0);
 }
 
@@ -899,22 +850,18 @@ figure.effect-zoe:hover p.description {
 }
 
 figure.effect-zoe:hover figcaption, figure.effect-zoe:hover h2, figure.effect-zoe:hover p.icon-links a {
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
 figure.effect-zoe:hover h2 {
-    -webkit-transition-delay: 0.05s;
     transition-delay: 0.05s;
 }
 
 figure.effect-zoe:hover p.icon-links a:nth-child(3) {
-    -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
 }
 
 figure.effect-zoe:hover p.icon-links a:nth-child(2) {
-    -webkit-transition-delay: 0.15s;
     transition-delay: 0.15s;
 }
 
@@ -936,20 +883,12 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     display: block;
     text-decoration: none;
     color: #FFFFFF;
-    -webkit-transition: all 0.1s ease;
-    -moz-transition: all 0.1s ease;
-    -o-transition: all 0.1s ease;
-    -ms-transition: all 0.1s ease;
     transition: all 0.1s ease;
 }
 
 .content a:hover {
     color: #7b1830;
     text-decoration: none;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
     background-size: cover;
 }
@@ -961,10 +900,6 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 .content a:active {
     color: #7b1830;
     text-decoration: none;
-    -webkit-transition: all 0.01s ease;
-    -moz-transition: all 0.01s ease;
-    -o-transition: all 0.01s ease;
-    -ms-transition: all 0.01s ease;
     transition: all 0.01s ease;
     background-size: cover;
 }
@@ -1099,7 +1034,6 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 .person .persons p {
     text-align: center;
     visibility: hidden;
-    -webkit-transition: top 0.8s;
     transition: top 0.8s;
     -moz-transition: top 0.8s;
     -o-transition: top 0.8s;
@@ -1316,13 +1250,11 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 }*/
 .logos-showcase-div {
     padding: 5%;
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
 .logos-showcase-div:hover {
     padding: 0%;
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -1443,9 +1375,6 @@ figure.effect-zoe:hover p.icon-links a:first-child {
         opacity: 0;
         display: block;
         margin: auto;
-        -webkit-transition: opacity 0.35s;
-        -moz-transition: opacity 0.35s;
-        -o-transition: opacity 0.35s;
         transition: opacity 0.35s;
     }
 
@@ -1507,7 +1436,6 @@ figure.effect-zoe:hover p.icon-links a:first-child {
         padding-left: 10%;
         padding-right: 10%;
         font-size: 0.8em;
-        -webkit-transition: top 0.8s;
         transition: top 0.8s;
         -moz-transition: top 0.8s;
         -o-transition: top 0.8s;
@@ -1717,7 +1645,6 @@ figure.effect-zoe:hover p.icon-links a:first-child {
         padding-left: 10%;
         padding-right: 10%;
         font-size: 0.8em;
-        -webkit-transition: top 0.8s;
         transition: top 0.8s;
         -moz-transition: top 0.8s;
         -o-transition: top 0.8s;
@@ -1786,23 +1713,16 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     }
 
     nav ul {
-        display: -webkit-box;
-        display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
         list-style: none;
     }
 
     nav ul li {
-        -webkit-flex-basis: 34%;
         -ms-flex-preferred-size: 34%;
         flex-basis: 34%;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
         -ms-flex-align: center;
         align-items: center;
         height: 100%;
@@ -1836,18 +1756,14 @@ figure.effect-zoe:hover p.icon-links a:first-child {
         top: 50%;
         left: 0;
         z-index: 100;
-        -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
         transform: translateX(-100%);
         opacity: 0;
-        -webkit-transition: all .2s linear;
         transition: all .2s linear;
     }
 
     nav li a:after {
         content: attr(data-content);
         font-size: 0.7rem;
-        -webkit-transition: all .2s linear;
         transition: all .2s linear;
         opacity: 0;
         position: absolute;
@@ -1867,15 +1783,11 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     }
 
     nav li a:hover:before {
-        -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
         transform: translateX(0);
         opacity: 1;
     }
 
     nav li a:hover:after {
-        -webkit-transform: translateY(15px);
-        -ms-transform: translateY(15px);
         transform: translateY(15px);
         opacity: 1;
     }
@@ -1915,32 +1827,26 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     }
 
     .animate-top-bar {
-        -webkit-animation: animate-top-bar .6s linear 1 both;
         animation: animate-top-bar .6s linear 1 both
     }
 
     .animate-bottom-bar {
-        -webkit-animation: animate-bottom-bar .6s linear 1 both;
         animation: animate-bottom-bar .6s linear 1 both
     }
 
     .animate-middle-bar {
-        -webkit-animation: animate-middle-bar .6s linear 1 both;
         animation: animate-middle-bar .6s linear 1 both
     }
 
     .animate-out-top-bar {
-        -webkit-animation: animate-out-top-bar .6s linear 1 both;
         animation: animate-out-top-bar .6s linear 1 both
     }
 
     .animate-out-bottom-bar {
-        -webkit-animation: animate-out-bottom-bar .6s linear 1 both;
         animation: animate-out-bottom-bar .6s linear 1 both
     }
 
     .animate-out-middle-bar {
-        -webkit-animation: animate-out-middle-bar .6s linear 1 both;
         animation: animate-out-middle-bar .6s linear 1 both
     }
 
@@ -1952,16 +1858,13 @@ figure.effect-zoe:hover p.icon-links a:first-child {
             background-color: #000;
         }
         50% {
-            -webkit-transform: translateY(9px);
             transform: translateY(9px)
         }
         80% {
-            -webkit-transform: translateY(5px);
             transform: translateY(5px);
             background-color: #DDD
         }
         100% {
-            -webkit-transform: translateY(0);
             transform: translateY(0);
             background-color: #FFF;
         }
@@ -1971,16 +1874,13 @@ figure.effect-zoe:hover p.icon-links a:first-child {
             background-color: #000;
         }
         50% {
-            -webkit-transform: translateY(-9px);
             transform: translateY(-9px)
         }
         80% {
-            -webkit-transform: translateY(-5px);
             transform: translateY(-5px);
             background-color: #DDD;
         }
         100% {
-            -webkit-transform: translateY(0);
             transform: translateY(0);
             background-color: #FFF;
         }
@@ -2001,16 +1901,13 @@ figure.effect-zoe:hover p.icon-links a:first-child {
             background-color: #000
         }
         50% {
-            -webkit-transform: translateY(9px);
             transform: translateY(9px)
         }
         80% {
-            -webkit-transform: translateY(5px);
             transform: translateY(5px);
             background-color: #000;
         }
         100% {
-            -webkit-transform: translateY(0);
             transform: translateY(0);
             background-color: #000;
         }
@@ -2020,16 +1917,13 @@ figure.effect-zoe:hover p.icon-links a:first-child {
             background-color: #000;
         }
         50% {
-            -webkit-transform: translateY(-9px);
             transform: translateY(-9px)
         }
         80% {
-            -webkit-transform: translateY(-5px);
             transform: translateY(-5px);
             background-color: #000;
         }
         100% {
-            -webkit-transform: translateY(0);
             transform: translateY(0);
             background-color: #000;
         }
@@ -2084,9 +1978,6 @@ figure.effect-zoe:hover p.icon-links a:first-child {
     /* små mobiler */
     @media (max-width: 640px) {
         nav ul {
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
             -ms-flex-direction: column;
             flex-direction: column;
         }
