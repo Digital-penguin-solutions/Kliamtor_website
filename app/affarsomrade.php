@@ -20,7 +20,7 @@ if(isset($_COOKIE['lang'])){
     <meta charset="utf-8">
 
     <!--======================================= CSS =====================================================-->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style_old.css" rel="stylesheet">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">

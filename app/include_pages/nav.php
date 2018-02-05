@@ -1,4 +1,3 @@
-<!--=============================================== DESTKOP-NAV Start==================================-->
 <nav class="navbar navbar-custom navbar-fixed-top hidden-xs hidden-sm" role="navigation">
     <?php
     $link = "";
@@ -65,9 +64,6 @@
     </div>
 </nav>
 
-<!--=============================================== NAV END ===================================================-->
-
-<!--=============================================== NAV(tabet) start ==========================================-->
 <div class = "tablet-nav hidden-lg hidden-md">
     <div class="overlay-navigation">
         <nav role="navigation">
@@ -80,18 +76,7 @@
         <div class = "hidden-lg hidden-md tablet-lang"> <a class="" href="set_lang.php?lang=<?php echo $link; ?>"><strong><?php echo $out; ?></strong></a> </div>
     </div>
 </div>
+
 <section class="home">
     <div class="open-overlay center-vertical"> <span class="bar-top"></span> <span class="bar-middle"></span> <span class="bar-bottom"></span> </div>
-</section>
-
-<!--=============================================== NAV(tabet) End ==========================================-->
-<section class="intro" id = "page0">
-    <div class = "background-slider"> </div>
-    <div class="intro-body">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2"> <img class="brand-heading fade-in" src="img/logo/Klimator-dark.svg" alt="Klimator logo"> <a href="#page0-5" class="btn btn-circle page-scroll fade-in fade-delay-1"> <img class="logo-button" src="img/logo/icon-r.svg" alt="logo"/> </a> </div>
-            </div>
-        </div>
-    </div>
 </section>
