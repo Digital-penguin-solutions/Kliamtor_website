@@ -15,9 +15,8 @@ if (isset($_COOKIE['lang'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="Klimator homepage">
-    <title>Klimator</title>
-
+    <title>Contact us</title>
+    <meta name="description" content="We who work hear att klimator">
 
     <script>window.viewportUnitsBuggyfill.init({
             // ignore browser capability, run this puppy everywhere
@@ -54,7 +53,7 @@ if (isset($_COOKIE['lang'])) {
     </div>
 </section>
 
-<section id="pagek1" class="person">
+<section class="person">
     <div id="person-container" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container-fluid row full-height">
 
         <div class="col-xs-6 persons fade-in">

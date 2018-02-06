@@ -13,9 +13,8 @@ if (isset($_COOKIE['lang'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="Klimator homepage">
     <title>Klimator</title>
-
+    <meta name="description" content="Klimator är ett kunskapsföretag vid Göteborgs universitet. Sedan 1999 har vi arbetat med konsultverksamhet inom klimatologi ">
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
