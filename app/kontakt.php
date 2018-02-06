@@ -142,7 +142,7 @@ if (isset($_COOKIE['lang'])) {
             <h4 class="purple-selection">Viktoria Bogren</h4>
             <h5>Bachelor of Science</h5>
             <strong>
-                <p></p>
+                <p>0706 653 713</p>
                 <p>viktoria.bogren@klimator.se</p>
             </strong>
         </div>
@@ -152,7 +152,7 @@ if (isset($_COOKIE['lang'])) {
             <h4 class="purple-selection">Pontus Andersson</h4>
             <h5>Computers and Programming</h5>
             <strong>
-                <p></p>
+                <p>0735 564 431</p>
                 <p>pontus.andersson@klimator.se</p>
             </strong>
         </div>
